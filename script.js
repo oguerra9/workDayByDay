@@ -13,13 +13,9 @@ var hoursArray = JSON.parse(localStorage.getItem('hoursArrayLS'));
 
 var rowArray = [];
 
-var displayTimeEl = $('<p>');
-containerEl.append(displayTimeEl);
-
 //function to update current time
 function updateTime() {
     currTime = moment();
-    displayTimeEl.text(currTime.format('hh:mm:ss A'));
 }
 
 updateTime();
