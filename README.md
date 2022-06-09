@@ -18,3 +18,6 @@ When the save button is clicked, the array of hour objects is loaded from local 
 ## Row Colors
 Upon creating the row elements for each hour object in the array, the current time is then checked against the start and end times of the hour object to determine which class should be set for the row's elements. If the current time is after the end time of the hour object, the hour has already passed and the class of the text area is set to "past" which changes the background color of the element to gray. If the current time is after the hour object's start time but before the hour object's end time, the hour object represents the current hour and the class of the text area is set to "present" which changes the background color of the object to red. If the current time is before the hour object's start time, the hour represented by the hour object has not started yet and class of the text area is set to "future" which changes the background color of the element to green.
 
+![Top of website page](./assets/images/screenshot1.png)
+
+![Bottom of website page with example of saved scheduled event](./assets/images/screenshot2.png)
