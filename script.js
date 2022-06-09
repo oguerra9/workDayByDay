@@ -28,14 +28,12 @@ updateTime();
 setInterval(function () {
     updateTime();
     //at the top of every hour, the color of each row will be updated to reflect the current time of day
-    if (moment().minutes() == "00") {
-        //colorHours();
+    if (moment().minutes() == "00" && moment().seconds() == "00") {
         location.reload();
     }
     //at the beginning of every day, the local storage will be cleared, emptying the list of scheduled events for each hour and renders a new page
     if (currTime == moment().startOf('day')) {
         localStorage.clear();
-        //newDay();
         location.reload();
     }
 },1000);
@@ -160,21 +158,21 @@ function saveToDo(event) {
 }
 
 
-function colorHours() {
-    for (var i = 0; i < hoursArray.length; i++) {
-        if (moment().isAfter(hoursArray[i].startTime) && moment().isBefore(hoursArray[i].endTime)) {
-            $('hoursArray[i] > textArea:first').removeClass('future');
-            $('hoursArray[i] > textArea:first').addClass('present');
-        }
-        if (moment().isBefore(hoursArray[i].startTime)) { 
-            $('hoursArray[i] > textArea:first').removeClass('future');
-        }
-        if (moment().isAfter(hoursArray[i].endTime)) {
-            $('hoursArray[i] > textArea:first').removeClass('present');
-            $('hoursArray[i] > textArea:first').addClass('past');
-        } 
-        console.log('hour ' + i + ' colored');
-    }
-}
+// function colorHours() {
+//     for (var i = 0; i < hoursArray.length; i++) {
+//         if (moment().isAfter(hoursArray[i].startTime) && moment().isBefore(hoursArray[i].endTime)) {
+//             $('hoursArray[i] > textArea:first').removeClass('future');
+//             $('hoursArray[i] > textArea:first').addClass('present');
+//         }
+//         if (moment().isBefore(hoursArray[i].startTime)) { 
+//             $('hoursArray[i] > textArea:first').removeClass('future');
+//         }
+//         if (moment().isAfter(hoursArray[i].endTime)) {
+//             $('hoursArray[i] > textArea:first').removeClass('present');
+//             $('hoursArray[i] > textArea:first').addClass('past');
+//         } 
+//         console.log('hour ' + i + ' colored');
+//     }
+// }
 
 containerEl.on('click', '.saveBtn', saveToDo);
